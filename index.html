@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipal of Samal</title>
+    <link rel="stylesheet" href="assets/css/flowbite.min.css">
+    <script src="assets/js/flowbite.min.js"></script>
+    <style>
+        #home {
+            position: relative; /* Ensures positioning for the pseudo-element */
+            background-image: url(assets/image/samal.jpg);
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #home::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(8, 21, 105, 0.6); /* Black overlay with 50% opacity */
+            z-index: 1; /* Place the overlay on top of the background image */
+        }
+
+        #home > * {
+            position: relative;
+            z-index: 2; /* Ensure content stays above the overlay */
+        }
+        .traced-logo {
+            filter: drop-shadow(0px 0px 5px white); /* Adds a subtle edge-like effect */
+
+        }
+        .active {
+        border-color: white; /* Makes the bottom border white */
+        color: white;        /* Makes the text white */
+        background-color: transparent; /* Optional: Ensure background remains transparent */
+    }
+
+
+
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-white font-sans">
+    <header class="fixed top-0 left-0 w-full bg-blue-900 p-4 md:px-8 flex justify-between items-center z-50">
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="assets/image/samal_logo.png" class="h-8" alt="Samal Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Samal</span>
+        </a>
+
+        <div class="block md:hidden">
+            <button id="menu-toggle" class="flex flex-col space-y-1">
+                <span class="block w-6 h-1 bg-white"></span>
+                <span class="block w-6 h-1 bg-white"></span>
+                <span class="block w-6 h-1 bg-white"></span>
+            </button>
+        </div>
+
+        <nav id="menu" class="hidden md:flex md:space-x-6 absolute md:relative top-14 left-0 w-full 
+                                bg-blue-900 md:top-auto md:w-auto md:bg-transparent p-4 md:p-0 flex flex-col md:flex-row">
+                                        
+            <a href="#home" class="md:hover:text-blue-400 transition font-semibold text-white text-center border-b-2 border-white">Home</a>
+            <a href="#departments" class="md:hover:text-blue-400 transition font-semibold text-white text-center">Departments</a>
+            <a href="#about" class="md:hover:text-blue-400 transition font-semibold text-white text-center">About</a>
+            <a href="#contact" class="md:hover:text-blue-400 transition font-semibold text-white text-center">Contacts</a>
+        </nav>
+
+    </header>
+
+    <section id="home" class="min-h-screen flex justify-center items-center flex-col">
+        <div class="flex justify-center items-center">
+            <img src="assets/image/bagong_pilipinas.png" class="h-16 md:h-36 traced-logo" alt="bagong_pilipinas">
+            <img src="assets/image/samal_logo.png" class="h-12 md:h-32" alt="samal">
+            <img src="assets/image/one_bataan.png" class="h-12 md:h-32" alt="one_bataan">
+        </div>
+        <h1 class="text-sm md:text-4xl font-regular text-white">REPUBLIC OF THE PHILIPPINES</h1>
+        <h1 class="text-2xl md:text-7xl font-bold text-white">MUNICIPALITY OF SAMAL</h1>
+        <h1 class="text-sm md:text-4xl font-regular text-white">PROVINCE OF BATAAN</h1>
+    </section>
+    <section id="departments" class="min-h-screen flex justify-start pt-24 items-center flex-col bg-blue-800">
+        <h1 class="text-2xl md:text-4xl font-bold text-white pb-3">Departments</h1>
+        <div class="mb-4">
+            <ul class="flex flex-wrap justify-center md:justify-start -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+                <li class="me-2" role="presentation">
+                    <button
+                        class="inline-block p-4 border-b-2 border-transparent text-gray-700 rounded-t-lg aria-selected:border-white aria-selected:text-white"
+                        id="first_floor-tab" data-tabs-target="#first_floor" type="button" role="tab" aria-controls="first_floor" aria-selected="true">
+                        First Floor
+                    </button>
+                </li>
+                <li class="me-2" role="presentation">
+                    <button
+                        class="inline-block p-4 border-b-2 border-transparent text-gray-700 rounded-t-lg hover:text-gray-900 hover:border-gray-400 aria-selected:border-white aria-selected:text-white"
+                        id="second_floor-tab" data-tabs-target="#second_floor" type="button" role="tab" aria-controls="second_floor" aria-selected="false">
+                        Second Floor
+                    </button>
+                </li>
+                <li class="me-2" role="presentation">
+                    <button
+                        class="inline-block p-4 border-b-2 border-transparent text-gray-700 rounded-t-lg hover:text-gray-900 hover:border-gray-400 aria-selected:border-white aria-selected:text-white"
+                        id="command_center-tab" data-tabs-target="#command_center" type="button" role="tab" aria-controls="command_center" aria-selected="false">
+                        Command Center
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div id="default-tab-content">
+            <div class="hidden p-4 rounded-lg bg-white max-w-4xl" id="first_floor" role="tabpanel" aria-labelledby="first_floor-tab">
+                <div class="max-w-6xl grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <button data-modal-target="hr-modal" data-modal-toggle="hr-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Human Resourcement Management Office
+                    </button>
+                    <button data-modal-target="omt-modal" data-modal-toggle="omt-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Office of The Municipal Treasurer
+                    </button>
+                    <button data-modal-target="mswd-modal" data-modal-toggle="mswd-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Municipal Social Welfare Development
+                    </button>
+                    <button data-modal-target="oma-modal" data-modal-toggle="oma-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Office of The Municipal Agriculture
+                    </button>
+                    <button data-modal-target="peso-modal" data-modal-toggle="peso-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Public Employment Service Office
+                    </button>
+                </div>    
+            </div>
+            <div class="hidden p-4 rounded-lg bg-white max-w-4xl" id="second_floor" role="tabpanel" aria-labelledby="second_floor-tab">
+                <div class="max-w-6xl grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <button data-modal-target="omm-modal" data-modal-toggle="omm-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Office of The Municipal Mayor  
+                    </button>
+                    <button data-modal-target="sb-modal" data-modal-toggle="sb-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Office of The Sangguniang Bayan 
+                    </button>
+                    <button data-modal-target="dilg-modal" data-modal-toggle="dilg-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Department of The Interior and Local Government
+                    </button>
+                    <button data-modal-target="mb-modal" data-modal-toggle="mb-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Office of The Municipal Budget
+                    </button>
+                    <button data-modal-target="ma-modal" data-modal-toggle="ma-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Office Of The Municipal Accountant
+                    </button>
+                    <button data-modal-target="omas-modal" data-modal-toggle="omas-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Office of The Municipal Assessor
+                    </button>
+                    <button data-modal-target="mpdo-modal" data-modal-toggle="mpdo-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Municipal Planning & Development Office
+                    </button>
+                    <button data-modal-target="me-modal" data-modal-toggle="me-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                        Office of The Municipal Engineer
+                    </button>
+                </div>    
+            </div>
+            <div class="hidden p-4 rounded-lg bg-white max-w-4xl" id="command_center" role="tabpanel" aria-labelledby="command_center-tab">
+                <p class="text-sm text-gray-600">This is some placeholder content for the <strong class="font-medium text-gray-900">Command Center</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+            </div>
+        </div>
+        
+
+    </section>
+    <section id="about" class="min-h-screen flex justify-start pt-24 items-center flex-col bg-white">
+        <h1 class="text-4xl font-bold text-blue-900 pb-3">About</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 p-6 w-9/12">
+            <div class="bg-transparent">
+                <img src="assets/image/about_samal.jpeg" class="cover" alt="about_samal">
+            </div>
+            <div class="bg-transparent">
+                <p class="text-gray-900 text-sm md:text-lg text-justify">
+                    Samal, a municipality in Bataan, Philippines, has a rich history that dates back to the pre-colonial era when it was inhabited by indigenous Aeta communities. During Spanish colonization, Samal became one of the early settlements established in Bataan, contributing to the province's agricultural and cultural development. Its fertile lands supported farming, while its coastal location enabled fishing and trade. Over the years, Samal played a role in the country's fight for freedom, with its residents participating in the Philippine Revolution and World War II. Today, Samal preserves its historical heritage while embracing progress and modernity.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="min-h-screen flex justify-start flex-col items-center pt-24 bg-blue-50">
+        <h1 class="text-4xl font-bold text-blue-900 pb-3">Contact</h1>
+        <div class="py-3 " data-aos="fade-up">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                <div class="rounded-lg overflow-hidden flex items-center justify-center">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d964.4986230546509!2d120.5427355097499!3d14.76934036741466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339642108aeb856b%3A0x246a68ee82abc08!2sSamal%20Municipal%20Hall!5e0!3m2!1sen!2sph!4v1737200947734!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div>
+                    <div class="max-w-full mx-auto rounded-lg overflow-hidden">
+                        <div class="px-6 py-4">
+                            <h3 class="text-lg font-medium text-gray-900">Municipal Address</h3>
+                            <p class="mt-1 text-gray-600">Samal, Bataan</p>
+                        </div>
+                        <div class="border-t border-gray-200 px-6 py-4">
+                            <h3 class="text-lg font-medium text-gray-900">Hours</h3>
+                            <p class="mt-1 text-gray-600">Monday - Friday: 8am - 5pm</p>
+                            <p class="mt-1 text-gray-600">Saturday - Sunday: Closed</p>
+                        </div>
+                        <div class="border-t border-gray-200 px-6 py-4">
+                            <h3 class="text-lg font-medium text-gray-900">Contact</h3>
+                            <p class="mt-1 text-gray-600">Email: samalbataan@gmail.com</p>
+                            <p class="mt-1 text-gray-600">Phone: +1 23456 78910</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="w-full mt-10 mx-auto w-full p-4 py-6 lg:py-8 bg-blue-800">
+                <div class="flex justify-between md:flex-row flex-col px-4 md:px-24">
+                    <div data-aos="fade-up">
+                        <a href="#" class="flex items-center">
+                            <img src="assets/image/samal_logo.png" class="h-8 me-3" alt="provet_logo" />
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Samal</span>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-1 w-1/2 gap-2 md:grid-cols-2" data-aos="fade-up">
+                        <div>
+                            <h2 class="mb-3 text-lg font-semibold text-white uppercase ">Mission</h2>
+                            <p class="text-white font-medium">
+                                To develop the province into a truly self-sufficient province in livestock and poultry products with sustained profitability and strict regulatory functions.
+                            </p>
+                        </div>
+                        <div>
+                            <h2 class="mb-3 text-lg font-semibold text-white uppercase ">Vision</h2>
+                            <p class="text-white font-medium">
+                                A cooperative endeavor of small rural based farmer entrepreneurs, attain and improve family life through sustained and developed livestock and poultry industry.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="grid grid-cols-1 w-1/2 gap-2 md:grid-cols-2" data-aos="fade-up">
+                    <div>
+                        <h2 class="mb-3 text-lg font-semibold text-white uppercase ">Mission</h2>
+                        <p class="text-white font-medium">
+                            To develop the province into a truly self-sufficient province in livestock and poultry products with sustained profitability and strict regulatory functions.
+                        </p>
+                    </div>
+                    <div>
+                        <h2 class="mb-3 text-lg font-semibold text-white uppercase ">Vision</h2>
+                        <p class="text-white font-medium">
+                            A cooperative endeavor of small rural based farmer entrepreneurs, attain and improve family life through sustained and developed livestock and poultry industry.
+                        </p>
+                    </div>
+                </div> -->
+                <hr class="my-6 border-white sm:mx-auto lg:my-8"/>
+                <div class="sm:flex sm:items-center sm:justify-between" >
+                    <span class="text-sm text-white sm:text-cente">© 2024 <a href="#" class="hover:underline">Samal</a>. All Rights Reserved.
+                    </span>
+                    
+                </div>
+            </div>
+
+
+    </section>
+
+
+    <!-- First Floor -->
+    <div id="hr-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow ">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                    <h3 class="text-xl font-semibold text-gray-900 ">
+                        Human Resourcement Management Office
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="hr-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500 ">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500 ">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="omt-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow ">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Office of The Municipal Treasurer
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="omt-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mswd-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Municipal Social Welfare Development
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="mswd-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="oma-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Office of The Municipal Agriculture
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="oma-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="peso-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Public Employment Service Office
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="peso-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Floor -->
+    <div id="omm-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Office of The Municipal Mayor  
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="omm-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sb-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Office of The Sangguniang Bayan 
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="sb-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dilg-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Department of The Interior and Local Government
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="dilg-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mb-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow ">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Office of The Municipal Budget
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="mb-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ma-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Office Of The Municipal Accountant
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="ma-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="omas-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Office of The Municipal Assessor
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="omas-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mpdo-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Municipal Planning & Development Office
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="mpdo-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="me-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Office of The Municipal Engineer
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="me-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500">
+                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500">
+                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+        const navLinks = document.querySelectorAll('#menu a');
+        const sections = document.querySelectorAll('section');
+
+        // Toggle mobile menu
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Active link switching on scroll
+        window.addEventListener('scroll', () => {
+            let scrollY = window.scrollY;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-white', 'font-bold', 'border-b-2', 'border-white');
+                        link.classList.add('font-semibold');
+                    });
+                    const activeLink = document.querySelector(`#menu a[href="#${sectionId}"]`);
+                    activeLink.classList.add('text-white', 'font-bold', 'border-b-2', 'border-white');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
