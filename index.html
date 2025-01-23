@@ -35,11 +35,11 @@
             filter: drop-shadow(0px 0px 5px white); /* Adds a subtle edge-like effect */
 
         }
-        .active {
-        border-color: white; /* Makes the bottom border white */
-        color: white;        /* Makes the text white */
-        background-color: transparent; /* Optional: Ensure background remains transparent */
-    }
+        /* .active {
+            border-color: white; 
+            color: white;     
+            background-color: transparent; 
+        } */
 
 
 
@@ -69,6 +69,9 @@
             <a href="#departments" class="md:hover:text-blue-400 transition font-semibold text-white text-center">Departments</a>
             <a href="#about" class="md:hover:text-blue-400 transition font-semibold text-white text-center">About</a>
             <a href="#contact" class="md:hover:text-blue-400 transition font-semibold text-white text-center">Contacts</a>
+            <button data-modal-target="hotlines-modal" data-modal-toggle="hotlines-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1 md:py-0 text-center" type="button">
+                Hotlines
+            </button>
         </nav>
 
     </header>
@@ -96,14 +99,14 @@
                 </li>
                 <li class="me-2" role="presentation">
                     <button
-                        class="inline-block p-4 border-b-2 border-transparent text-gray-700 rounded-t-lg hover:text-gray-900 hover:border-gray-400 aria-selected:border-white aria-selected:text-white"
+                        class="inline-block p-4 border-b-2 border-transparent text-white rounded-t-lg hover:text-gray-900 hover:border-gray-400 aria-selected:border-white aria-selected:text-white"
                         id="second_floor-tab" data-tabs-target="#second_floor" type="button" role="tab" aria-controls="second_floor" aria-selected="false">
                         Second Floor
                     </button>
                 </li>
                 <li class="me-2" role="presentation">
                     <button
-                        class="inline-block p-4 border-b-2 border-transparent text-gray-700 rounded-t-lg hover:text-gray-900 hover:border-gray-400 aria-selected:border-white aria-selected:text-white"
+                        class="inline-block p-4 border-b-2 border-transparent text-white rounded-t-lg hover:text-gray-900 hover:border-gray-400 aria-selected:border-white aria-selected:text-white"
                         id="command_center-tab" data-tabs-target="#command_center" type="button" role="tab" aria-controls="command_center" aria-selected="false">
                         Command Center
                     </button>
@@ -207,15 +210,15 @@
 
             <div class="w-full mt-10 mx-auto w-full p-4 py-6 lg:py-8 bg-blue-800">
                 <div class="flex justify-between md:flex-row flex-col px-4 md:px-24">
-                    <div data-aos="fade-up">
+                    <div class="py-3 md:p-0" data-aos="fade-up">
                         <a href="#" class="flex items-center">
                             <img src="assets/image/samal_logo.png" class="h-8 me-3" alt="provet_logo" />
                             <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Samal</span>
                         </a>
                     </div>
-                    <div class="grid grid-cols-1 w-1/2 gap-2 md:grid-cols-2" data-aos="fade-up">
+                    <div class="grid grid-cols-1 text-center md:text-left w-full md:w-1/2 gap-y-4 md:gap-2  md:grid-cols-2" data-aos="fade-up">
                         <div>
-                            <h2 class="mb-3 text-lg font-semibold text-white uppercase ">Mission</h2>
+                            <h2 class="mb-3 text-lg font-semibold text-white uppercase">Mission</h2>
                             <p class="text-white font-medium">
                                 To develop the province into a truly self-sufficient province in livestock and poultry products with sustained profitability and strict regulatory functions.
                             </p>
@@ -228,21 +231,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="grid grid-cols-1 w-1/2 gap-2 md:grid-cols-2" data-aos="fade-up">
-                    <div>
-                        <h2 class="mb-3 text-lg font-semibold text-white uppercase ">Mission</h2>
-                        <p class="text-white font-medium">
-                            To develop the province into a truly self-sufficient province in livestock and poultry products with sustained profitability and strict regulatory functions.
-                        </p>
-                    </div>
-                    <div>
-                        <h2 class="mb-3 text-lg font-semibold text-white uppercase ">Vision</h2>
-                        <p class="text-white font-medium">
-                            A cooperative endeavor of small rural based farmer entrepreneurs, attain and improve family life through sustained and developed livestock and poultry industry.
-                        </p>
-                    </div>
-                </div> -->
                 <hr class="my-6 border-white sm:mx-auto lg:my-8"/>
                 <div class="sm:flex sm:items-center sm:justify-between" >
                     <span class="text-sm text-white sm:text-cente">© 2024 <a href="#" class="hover:underline">Samal</a>. All Rights Reserved.
@@ -618,6 +606,89 @@
                     <p class="text-base leading-relaxed text-gray-500">
                         The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
                     </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hotlines -->
+    <div id="hotlines-modal" tabindex="-1" aria-hidden="true" class="hidden  overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl ">
+            <div class="relative bg-blue-900 rounded-lg shadow ">
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                    <h3 class="text-xl font-semibold text-white">
+                        Emergency Hotlines
+                    </h3>
+                    <button type="button" class="text-white bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="hotlines-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4 max-h-96 overflow-y-auto">
+                    <div class="bg-white rounded-lg p-3 flex justify-between">
+                        <p class="text-blue-900 font-bold">
+                            Public Information Office
+                        </p>
+                        <p class="text-blue-900 font-bold">
+                            (+639) 927 538 6231
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-3 flex justify-between items-center">
+                        <p class="text-blue-900 font-bold">
+                            MDRRMO
+                        </p>
+                        <div class="text-blue-900 font-bold flex flex-col">
+                            <p>(+639) 916 461 7515</p>
+                            <p>(+639) 995 463 2295</p>
+                            <p>(+639) 981 308 7002</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg p-3 flex justify-between">
+                        <p class="text-blue-900 font-bold">
+                            SAMAL RHU
+                        </p>
+                        <p class="text-blue-900 font-bold">
+                            (+639) 947 563 3510
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-3 flex justify-between">
+                        <p class="text-blue-900 font-bold">
+                            SAMAL PNP
+                        </p>
+                        <p class="text-blue-900 font-bold">
+                            (+639) 915 888 4735
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-3 flex justify-between">
+                        <p class="text-blue-900 font-bold">
+                            SAMAL BFP
+                        </p>
+                        <p class="text-blue-900 font-bold">
+                            (+639) 912 218 4050
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg p-3 flex justify-between items-center">
+                        <p class="text-blue-900 font-bold">
+                            MBDA
+                        </p>
+                        <div class="text-blue-900 font-bold flex flex-col">
+                            <p class="text-center">911</p>
+                            <p>(+639) 919 914 6232</p>
+                            <p>(+639) 927 605 6991</p>
+                            
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg p-3 flex justify-between">
+                        <p class="text-blue-900 font-bold">
+                            PENELCO
+                        </p>
+                        <p class="text-blue-900 font-bold">
+                            (+639) 917 703 5575
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
