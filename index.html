@@ -8,38 +8,42 @@
     <link rel="stylesheet" href="assets/css/flowbite.min.css">
     <script src="assets/js/flowbite.min.js"></script>
     <style>
-        #home {
-            position: relative; /* Ensures positioning for the pseudo-element */
-            background-image: url(assets/image/samal.jpg);
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-        }
+#home {
+    position: relative; /* Ensure positioning for child elements */
+    overflow: hidden; /* Prevent video from overflowing */
+}
 
-        #home::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(8, 21, 105, 0.6); /* Black overlay with 50% opacity */
-            z-index: 1; /* Place the overlay on top of the background image */
-        }
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the section */
+    z-index: 0; /* Place the video at the bottom */
+}
 
-        #home > * {
-            position: relative;
-            z-index: 2; /* Ensure content stays above the overlay */
-        }
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 21, 105, 0.6); /* Overlay color */
+    z-index: 1; /* Place overlay above the video */
+}
+
+.content {
+    position: relative; /* Position the content above the overlay */
+    z-index: 2; /* Ensure content is on top of the overlay */
+    text-align: center; /* Center align text */
+}
+
+
         .traced-logo {
             filter: drop-shadow(0px 0px 5px white); /* Adds a subtle edge-like effect */
 
         }
-        /* .active {
-            border-color: white; 
-            color: white;     
-            background-color: transparent; 
-        } */
 
 
 
@@ -76,7 +80,7 @@
 
     </header>
 
-    <section id="home" class="min-h-screen flex justify-center items-center flex-col">
+    <!-- <section id="home" class="min-h-screen flex justify-center items-center flex-col">
         <div class="flex justify-center items-center">
             <img src="assets/image/bagong_pilipinas.png" class="h-16 md:h-36 traced-logo" alt="bagong_pilipinas">
             <img src="assets/image/samal_logo.png" class="h-12 md:h-32" alt="samal">
@@ -85,7 +89,28 @@
         <h1 class="text-sm md:text-4xl font-regular text-white">REPUBLIC OF THE PHILIPPINES</h1>
         <h1 class="text-2xl md:text-7xl font-bold text-white">MUNICIPALITY OF SAMAL</h1>
         <h1 class="text-sm md:text-4xl font-regular text-white">PROVINCE OF BATAAN</h1>
+    </section> -->
+    <section id="home" class="min-h-screen flex justify-center items-center flex-col">
+
+        <video autoplay muted loop id="background-video">
+            <source src="assets/image/motage.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="overlay"></div>
+        <div class="content flex justify-center items-center flex-col">
+            <div class="flex justify-center items-center">
+                <img src="assets/image/bagong_pilipinas.png" class="h-16 md:h-36 traced-logo" alt="bagong_pilipinas">
+                <img src="assets/image/samal_logo.png" class="h-12 md:h-32" alt="samal">
+                <img src="assets/image/one_bataan.png" class="h-12 md:h-32" alt="one_bataan">
+            </div>
+            <h1 class="text-sm md:text-4xl font-regular text-white">REPUBLIC OF THE PHILIPPINES</h1>
+            <h1 class="text-2xl md:text-7xl font-bold text-white">MUNICIPALITY OF SAMAL</h1>
+            <h1 class="text-sm md:text-4xl font-regular text-white">PROVINCE OF BATAAN</h1>
+        </div>
     </section>
+    
+    
     <section id="departments" class="min-h-screen flex justify-start pt-24 items-center flex-col bg-blue-800">
         <h1 class="text-2xl md:text-4xl font-bold text-white pb-3">Departments</h1>
         <div class="mb-4">
@@ -114,49 +139,49 @@
             </ul>
         </div>
         <div id="default-tab-content">
-            <div class="hidden p-4 rounded-lg bg-white max-w-4xl" id="first_floor" role="tabpanel" aria-labelledby="first_floor-tab">
+            <div class="hidden p-4 rounded-lg max-w-4xl" id="first_floor" role="tabpanel" aria-labelledby="first_floor-tab">
                 <div class="max-w-6xl grid grid-cols-2 md:grid-cols-3 gap-3">
-                    <button data-modal-target="hr-modal" data-modal-toggle="hr-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="hr-modal" data-modal-toggle="hr-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Human Resourcement Management Office
                     </button>
-                    <button data-modal-target="omt-modal" data-modal-toggle="omt-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="omt-modal" data-modal-toggle="omt-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Office of The Municipal Treasurer
                     </button>
-                    <button data-modal-target="mswd-modal" data-modal-toggle="mswd-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="mswd-modal" data-modal-toggle="mswd-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Municipal Social Welfare Development
                     </button>
-                    <button data-modal-target="oma-modal" data-modal-toggle="oma-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="oma-modal" data-modal-toggle="oma-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Office of The Municipal Agriculture
                     </button>
-                    <button data-modal-target="peso-modal" data-modal-toggle="peso-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="peso-modal" data-modal-toggle="peso-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Public Employment Service Office
                     </button>
                 </div>    
             </div>
-            <div class="hidden p-4 rounded-lg bg-white max-w-4xl" id="second_floor" role="tabpanel" aria-labelledby="second_floor-tab">
+            <div class="hidden p-4 rounded-lg max-w-4xl" id="second_floor" role="tabpanel" aria-labelledby="second_floor-tab">
                 <div class="max-w-6xl grid grid-cols-2 md:grid-cols-3 gap-3">
-                    <button data-modal-target="omm-modal" data-modal-toggle="omm-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="omm-modal" data-modal-toggle="omm-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Office of The Municipal Mayor  
                     </button>
-                    <button data-modal-target="sb-modal" data-modal-toggle="sb-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="sb-modal" data-modal-toggle="sb-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Office of The Sangguniang Bayan 
                     </button>
-                    <button data-modal-target="dilg-modal" data-modal-toggle="dilg-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="dilg-modal" data-modal-toggle="dilg-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Department of The Interior and Local Government
                     </button>
-                    <button data-modal-target="mb-modal" data-modal-toggle="mb-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="mb-modal" data-modal-toggle="mb-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Office of The Municipal Budget
                     </button>
-                    <button data-modal-target="ma-modal" data-modal-toggle="ma-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="ma-modal" data-modal-toggle="ma-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Office Of The Municipal Accountant
                     </button>
-                    <button data-modal-target="omas-modal" data-modal-toggle="omas-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="omas-modal" data-modal-toggle="omas-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Office of The Municipal Assessor
                     </button>
-                    <button data-modal-target="mpdo-modal" data-modal-toggle="mpdo-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="mpdo-modal" data-modal-toggle="mpdo-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Municipal Planning & Development Office
                     </button>
-                    <button data-modal-target="me-modal" data-modal-toggle="me-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                    <button data-modal-target="me-modal" data-modal-toggle="me-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Office of The Municipal Engineer
                     </button>
                 </div>    
