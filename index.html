@@ -7,42 +7,53 @@
     <title>Municipal of Samal</title>
     <link rel="stylesheet" href="assets/css/flowbite.min.css">
     <script src="assets/js/flowbite.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <style>
-#home {
-    position: relative; /* Ensure positioning for child elements */
-    overflow: hidden; /* Prevent video from overflowing */
-}
+        #home {
+            position: relative; /* Ensure positioning for child elements */
+            overflow: hidden; /* Prevent video from overflowing */
+        }
 
-#background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the video covers the section */
-    z-index: 0; /* Place the video at the bottom */
-}
+        #background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the video covers the section */
+            z-index: 0; /* Place the video at the bottom */
+        }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(8, 21, 105, 0.6); /* Overlay color */
-    z-index: 1; /* Place overlay above the video */
-}
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(8, 21, 105, 0.6); /* Overlay color */
+            z-index: 1; /* Place overlay above the video */
+        }
 
-.content {
-    position: relative; /* Position the content above the overlay */
-    z-index: 2; /* Ensure content is on top of the overlay */
-    text-align: center; /* Center align text */
-}
+        .content {
+            position: relative; /* Position the content above the overlay */
+            z-index: 2; /* Ensure content is on top of the overlay */
+            text-align: center; /* Center align text */
+        }
 
 
         .traced-logo {
             filter: drop-shadow(0px 0px 5px white); /* Adds a subtle edge-like effect */
 
+        }
+        .example::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .example {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
         }
 
 
@@ -68,7 +79,6 @@
 
         <nav id="menu" class="hidden md:flex md:space-x-6 absolute md:relative top-14 left-0 w-full 
                                 bg-blue-900 md:top-auto md:w-auto md:bg-transparent p-4 md:p-0 flex flex-col md:flex-row">
-                                        
             <a href="#home" class="md:hover:text-blue-400 transition font-semibold text-white text-center border-b-2 border-white">Home</a>
             <a href="#departments" class="md:hover:text-blue-400 transition font-semibold text-white text-center">Departments</a>
             <a href="#about" class="md:hover:text-blue-400 transition font-semibold text-white text-center">About</a>
@@ -79,20 +89,9 @@
         </nav>
 
     </header>
-
-    <!-- <section id="home" class="min-h-screen flex justify-center items-center flex-col">
-        <div class="flex justify-center items-center">
-            <img src="assets/image/bagong_pilipinas.png" class="h-16 md:h-36 traced-logo" alt="bagong_pilipinas">
-            <img src="assets/image/samal_logo.png" class="h-12 md:h-32" alt="samal">
-            <img src="assets/image/one_bataan.png" class="h-12 md:h-32" alt="one_bataan">
-        </div>
-        <h1 class="text-sm md:text-4xl font-regular text-white">REPUBLIC OF THE PHILIPPINES</h1>
-        <h1 class="text-2xl md:text-7xl font-bold text-white">MUNICIPALITY OF SAMAL</h1>
-        <h1 class="text-sm md:text-4xl font-regular text-white">PROVINCE OF BATAAN</h1>
-    </section> -->
     <section id="home" class="min-h-screen flex justify-center items-center flex-col">
 
-        <video autoplay muted loop id="background-video">
+        <video autoplay muted loop playsinline preload="auto" id="background-video">
             <source src="assets/image/motage.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -156,6 +155,7 @@
                     <button data-modal-target="peso-modal" data-modal-toggle="peso-modal" class="block text-blue-900 bg-white hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                         Public Employment Service Office
                     </button>
+                    
                 </div>    
             </div>
             <div class="hidden p-4 rounded-lg max-w-4xl" id="second_floor" role="tabpanel" aria-labelledby="second_floor-tab">
@@ -269,13 +269,13 @@
 
 
     <!-- First Floor -->
-    <div id="hr-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-2xl max-h-full">
+    <div id="hr-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex justify-center items-center w-full h-screen">
+        <div class="relative p-4 w-full max-w-2xl max-h-[90vh]">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow ">
+            <div class="relative bg-white rounded-lg shadow max-h-[90vh] flex flex-col">
                 <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
-                    <h3 class="text-xl font-semibold text-gray-900 ">
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
                         Human Resourcement Management Office
                     </h3>
                     <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="hr-modal">
@@ -286,23 +286,50 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <div class="p-4 md:p-5 space-y-4">
-                    <p class="text-base leading-relaxed text-gray-500 ">
-                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-                    </p>
-                    <p class="text-base leading-relaxed text-gray-500 ">
-                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
-                    </p>
+                <div class="p-4 md:p-5 space-y-4 overflow-y-auto max-h-[70vh]">
+                    <section class="bg-white">
+                        <div class="mt-2">
+                            <div x-data="{ currentImage: null }" x-init="() => {
+                                    window.addEventListener('keydown', (event) => {
+                                        if (event.key === 'Escape') {
+                                            currentImage = null;
+                                        }
+                                    });
+                                }">
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/hr1.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/hr1.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/hr2.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/hr2.jpg" alt="Image 2" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/hr3.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/hr3.jpg" alt="Image 3" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                </div>
+                                <!-- Image Preview Modal -->
+                                <div x-show="currentImage" class="fixed inset-0 flex items-center justify-center bg-gray-200 bg-opacity-80 transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display: none;">
+                                    <div @click.away="currentImage = null" class="max-w-full max-h-full overflow-auto py-12" tabindex="-1" aria-labelledby="modal-title" aria-describedby="modal-description">
+                                        <img :src="currentImage" alt="Full Size Image" class="max-w-full max-h-full mx-auto">
+                                        <button @click="currentImage = null" class="rounded-full bg-blue-600 px-8 py-2 mt-2 h-12 text-sm font-semibold flex items-center
+                                                text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 justify-center mx-auto w-auto
+                                                focus:ring-offset-2">Close</button> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
+                    </section>
                 </div>
             </div>
         </div>
     </div>
-    <div id="omt-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-2xl max-h-full">
+    
+    <div id="omt-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex justify-center items-center w-full h-screen">
+        <div class="relative p-4 w-full max-w-2xl max-h-[90vh]">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow ">
+            <div class="relative bg-white rounded-lg shadow max-h-[90vh] flex flex-col">
                 <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                     <h3 class="text-xl font-semibold text-gray-900">
                         Office of The Municipal Treasurer
                     </h3>
@@ -314,21 +341,44 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <div class="p-4 md:p-5 space-y-4">
-                    <p class="text-base leading-relaxed text-gray-500">
-                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-                    </p>
-                    <p class="text-base leading-relaxed text-gray-500">
-                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
-                    </p>
+                <div class="p-4 md:p-5 space-y-4 overflow-y-auto max-h-[70vh]">
+                    <section class="bg-white">
+                        <div class="mt-2">
+                            <div x-data="{ currentImage: null }" x-init="() => {
+                                    window.addEventListener('keydown', (event) => {
+                                        if (event.key === 'Escape') {
+                                            currentImage = null;
+                                        }
+                                    });
+                                }">
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/otm1.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/otm1.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/otm2.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/otm2.jpg" alt="Image 2" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                </div>
+                                <!-- Image Preview Modal -->
+                                <div x-show="currentImage" class="fixed inset-0 flex items-center justify-center bg-gray-200 bg-opacity-80 transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display: none;">
+                                    <div @click.away="currentImage = null" class="max-w-full max-h-full overflow-auto py-12" tabindex="-1" aria-labelledby="modal-title" aria-describedby="modal-description">
+                                        <img :src="currentImage" alt="Full Size Image" class="max-w-full max-h-full mx-auto">
+                                        <button @click="currentImage = null" class="rounded-full bg-blue-600 px-8 py-2 mt-2 h-12 text-sm font-semibold flex items-center
+                                                text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 justify-center mx-auto w-auto
+                                                focus:ring-offset-2">Close</button> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
+                    </section>
                 </div>
             </div>
         </div>
     </div>
-    <div id="mswd-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-2xl max-h-full">
+    <div id="mswd-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex justify-center items-center w-full h-screen">
+        <div class="relative p-4 w-full max-w-2xl max-h-[90vh]">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow">
+            <div class="relative bg-white rounded-lg shadow max-h-[90vh] flex flex-col">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                     <h3 class="text-xl font-semibold text-gray-900">
@@ -342,13 +392,63 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <div class="p-4 md:p-5 space-y-4">
-                    <p class="text-base leading-relaxed text-gray-500">
-                        With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-                    </p>
-                    <p class="text-base leading-relaxed text-gray-500">
-                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
-                    </p>
+                <div class="p-4 md:p-5 space-y-4 overflow-y-auto max-h-[70vh]">
+                    <section class="bg-white">
+                        <div class="mt-2">
+                            <div x-data="{ currentImage: null }" x-init="() => {
+                                    window.addEventListener('keydown', (event) => {
+                                        if (event.key === 'Escape') {
+                                            currentImage = null;
+                                        }
+                                    });
+                                }">
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/mswd1.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/mswd1.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/mswd2.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/mswd2.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/mswd3.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/mswd3.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/mswd4.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/mswd4.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/mswd5.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/mswd5.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/mswd6.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/mswd6.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/mswd7.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/mswd7.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/mswd8.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/mswd8.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/mswd9.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/mswd9.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/mswd10.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/mswd10.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                    <div x-on:click="currentImage = 'assets/image/citizen_chart/mswd11.jpg'" class="cursor-pointer"> 
+                                        <img src="assets/image/citizen_chart/mswd11.jpg" alt="Image 1" class="w-full h-auto aspect-[3/4] object-cover"> 
+                                    </div>
+                                </div>
+                                <!-- Image Preview Modal -->
+                                <div x-show="currentImage" class="fixed inset-0 flex items-center justify-center bg-gray-200 bg-opacity-80 transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display: none;">
+                                    <div @click.away="currentImage = null" class="max-w-full max-h-full overflow-auto py-12" tabindex="-1" aria-labelledby="modal-title" aria-describedby="modal-description">
+                                        <img :src="currentImage" alt="Full Size Image" class="max-w-full max-h-full mx-auto">
+                                        <button @click="currentImage = null" class="rounded-full bg-blue-600 px-8 py-2 mt-2 h-12 text-sm font-semibold flex items-center
+                                                text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 justify-center mx-auto w-auto
+                                                focus:ring-offset-2">Close</button> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
+                    </section>
                 </div>
             </div>
         </div>
